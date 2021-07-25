@@ -1,0 +1,21 @@
+`go env` 
+    command shows list of all environment variables.
+
+GOPATH : points to your workspace
+GOROOT : points to your binary installation of go.
+
+`go fmt ./...`
+    formats everything down the current director where the command is run
+
+`go install main.go`
+    creates a executable file inside bin folder of the GOPATH
+
+equivalent of npm init -y
+    `go mod init example/username/repo`
+cat go.mod
+    module example.com/username/repo
+
+"example.com/username/repo" is the namespace.
+
+
+short declaration operator (:=) can be used only inside a function. try to use as mush as short declaration operators.

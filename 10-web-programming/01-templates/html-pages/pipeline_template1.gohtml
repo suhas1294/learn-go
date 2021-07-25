@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>functions</title>
+</head>
+<body>
+
+{{.}}
+
+{{. | fdbl}}
+
+{{. | fdbl | fsq}}
+
+{{. | fdbl | fsq | fsqrt}} <!-- output '.' is passed to  fdbl, output of fdbl() is passed to fsq(), output of fsq() is passed to  fsqrt(), output of fsqrt() will be printedout -->
+
+</body>
+</html>

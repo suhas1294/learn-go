@@ -1,0 +1,3 @@
+install official GO plugin in VSC
+not hit "cmd + shift + p" - open command palette, search for "GO: install/update tools", click on checkbox to select all options shown in dropdown.
+restart VSC

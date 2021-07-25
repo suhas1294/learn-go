@@ -1,0 +1,57 @@
+Course outline:
+    https://docs.google.com/document/d/1ckYpi6hcRkaBUEk975f54oGsHYHu7GhzOk7-nOrkNxo/edit#
+
+docs:
+    https://goo.gl/PHKgO7
+    https://docs.google.com/document/d/18-0u5CvNIr83oOfMXPoM4klVFASXGl3Vvua1wBGMIoQ/edit
+
+presentation slides:
+    http://goo.gl/Tbz6Xf
+    https://drive.google.com/drive/folders/0B22KXlqHz6ZNfjNXTzk1U3JHUkJ6VjJ3dnJKNzVtNjRUM3Q2WFNqWGI2Q3RadERqUlVrOEU
+
+
+Github:
+Todd mcleod:
+    https://github.com/GoesToEleven/GolangTraining
+
+Folder structure:
+    https://github.com/golang-standards/project-layout
+GIn documentation
+    https://github.com/gin-gonic/gin
+    https://dwahyudi.github.io/2020/06/21/golang-web-application-with-gin.html
+    https://medium.com/@_ektagarg/golang-a-todo-app-using-gin-980ebb7853c8
+    https://semaphoreci.com/community/tutorials/building-go-web-applications-and-microservices-using-gin
+
+Building micro services with golang:
+federicoleon:
+    https://www.udemy.com/course/golang-the-ultimate-guide-to-microservices-in-go-part-1/
+    https://www.udemy.com/course/golang-how-to-design-and-build-rest-microservices-in-go/
+    https://github.com/federicoleon
+Trevor Sawler:
+    https://github.com/tsawler/bookings
+
+IO reader and writer:
+  https://medium.com/learning-the-go-programming-language/streaming-io-in-go-d93507931185
+  https://ofstack.com/Golang/29055/talk-about-the-confusion-about-golang-io-reading-and-writing.html
+  https://www.linkedin.com/pulse/mastering-golang-series-part-1-how-read-data-from-file-wang-ph-d-/
+  https://groups.google.com/g/golang-nuts/c/ZvvQfhPvXtk?pli=1
+
+Reading large file (16gb)in 25sec
+  https://medium.com/swlh/processing-16gb-file-in-seconds-go-lang-3982c235dfa2
+  https://golangbyexample.com/read-large-file-line-by-line-go/
+
+
+bufio.NewReader vs bufio.NewScanner:
+  https://shareablecode.com/snippets/difference-between-golang-bufio-reader-vs-scanner-newreader-vs-newscanner-f8eP-uc1U
+
+
+Golang with graphql:
+  https://www.freecodecamp.org/news/deep-dive-into-graphql-with-golang-d3e02a429ac3/
+
+
+Building a micro service using grpc/protobuf:
+  https://ewanvalentine.io/microservices-in-golang-part-1/
+
+
+evolution-of-a-go-programmer
+  https://github.com/SuperPaintman/the-evolution-of-a-go-programmer

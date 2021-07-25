@@ -1,0 +1,4 @@
+source Files(Functions, types, variables, and constants)
+  -> package
+    -> modules (collection of related Go packages)
+      ->repository (collection of one or more modules, usually one module)

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+</head>
+<body>
+<h1> slice of data : </h1>
+
+<ul>
+    <li>{{ .Name }} - {{ .Motto }} </li>
+</ul>
+
+<ul>
+    <!-- Alternative way of doing it -->
+    {{ $x := .Name }}
+    {{ $y := .Motto }}
+    <li>{{ $x }} - {{ $y }} </li>
+</ul>
+</body>
+</html>

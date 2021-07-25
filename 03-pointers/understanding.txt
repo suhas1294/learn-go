@@ -1,0 +1,78 @@
+https://play.golang.org/p/dpzxek7mG59
+
+data type of a 'address' = pointer to 'type'
+
+Ex:
+
+type Person struct{
+  Name string
+  Age int
+}
+
+p := person{"xyz", 23}
+address_of_p = &p
+
+1. Here Person itself is a custom data type
+
+2. data type of 'p' is Person
+3. data type of 'address_of_p' is *Person (data type of 'address to p')
+4. data type of '*address_of_p' is Person (data type of pointer to address)
+5. data type of '&address_of_p' (read as address of (address of p)) is **Person (data type of address of an address)
+
+
+(value store in)address of p : &{foobar}
+*(address of p) : {xyz, 23}
+
+address of (address of p): 0xc00000e028
+*(address of (address of p)) : &{foobar}
+
+So when you attach a func to Person type with pointer receiver, you are sending the
+address of the instance variable whose value needs to be changed:
+
+func (p *Person) talk1(){
+  p.Name = "New Name"
+  p.Age = 13
+}
+
+p.talk1()
+
+In the above code : when we do `p.talk1()`, we are sending the address of instance variable 'p'
+'p' value gets changed forever.
+
+________________________________
+
+func (p Person) talk2(){
+  p.Name = "New Name"
+  p.Age = 13
+}
+
+p.talk2()
+
+In the above code : when we do `p.talk2()`, then inside the method talk2(), a copy/reference of person object is created (say insidePerson) and values of insidePerson are worked upon.
+
+Practically, pointer receivers are often used then value receivers in funcs.
+
+________________________________
+
+type person struct{
+	name string
+	age int
+}
+
+p := person{
+	name: "foobar",
+	age: 24
+}
+
+//1. p : has value of type person
+//2. &p : address of p, usually like 0x56fd
+//3. type of p 	: person
+//4. type of &p : *person (pointer to person)
+________________________________
+
+
+
+
+
+
+

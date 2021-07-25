@@ -1,0 +1,33 @@
+Handler interface is the entry point to the net/http package.
+Handler interface has got the method ServeHTTP(ResponseWriter, *Request)
+
+ListenAndServe(":8080", handler)
+
+Request:
+  start line (GET '/' 200)
+  headers
+  <blank line>
+  body
+
+Response:
+  status line
+  headers
+  <blank line>
+
+Request is a struct.
+if has fields : Form and PostForm
+Form gives u values from both URL and form payload
+PostForm gives u data from ONLY form payload
+
+usage:
+
+func (m hotdog) ServeHTTP(w http.ResponseWriter, req *http.Request) {
+  err := req.ParseForm()
+  if err != nil {
+    log.Fatalln(err)
+  }
+
+  tpl.ExecuteTemplate(w, "index.gohtml", req.PostForm)
+  //OR
+  tpl.ExecuteTemplate(w, "index.gohtml", req.Form)
+}

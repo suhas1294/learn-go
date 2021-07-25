@@ -1,0 +1,8 @@
+Uploading:
+    https://matt.aimonetti.net/posts/2013-07-golang-multipart-file-upload-example/
+    https://stackoverflow.com/questions/52406709/simple-http-post-in-go-with-file-upload/52409710
+
+Downloading:
+    https://golangcode.com/download-a-file-from-a-url/
+    https://stackoverflow.com/questions/11692860/how-can-i-efficiently-download-a-large-file-using-go
+    https://stackoverflow.com/questions/33845770/how-do-i-download-a-file-with-a-http-request-in-go-language

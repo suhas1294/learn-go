@@ -1,0 +1,25 @@
+Hi and welcome!
+
+In this lecture I just wanted to share all of the repos we're working during these course. Feel free to fork them and play with them! The more you code the more comfortable you'll fill with the language. You can always send a PR if you see some improvement or something you'd like to propose.
+
+Hope you'll enjoy the course! Please, use the Q&A section as much as needed! I'm here to make your learning process as fun and productive as I can!
+
+Users API (Gin + MVC pattern + MySQL):
+    https://github.com/federicoleon/bookstore_users-api
+
+OAuth API (Gin + Domain Driven Design + CassandraDB):
+    https://github.com/federicoleon/bookstore_oauth-api
+
+OAuth common library (OAuth client for all of our APIs):
+    https://github.com/federicoleon/bookstore_oauth-go
+
+
+Utils shared library (Common errors and more. Keep error handling consisten in our entire ecosystem):
+    https://github.com/federicoleon/bookstore_utils-go
+
+
+Items API (Gorilla/mux + MVC + ElasticSearch):
+    https://github.com/federicoleon/bookstore_items-api
+
+See you in the course!!
+Fede.

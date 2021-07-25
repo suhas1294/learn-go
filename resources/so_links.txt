@@ -1,0 +1,4 @@
+https://stackoverflow.com/questions/55813574/when-to-use-a-pointer-to-a-nested-struct-for-json
+https://stackoverflow.com/questions/24452323/whats-the-difference-between-pointer-and-value-in-struct
+https://stackoverflow.com/questions/23542989/pointers-vs-values-in-parameters-and-return-values
+https://stackoverflow.com/questions/41267046/golang-how-to-fetch-specific-key-from-multistructure-from-the-rest-api-json-re

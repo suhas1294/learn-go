@@ -1,0 +1,45 @@
+Server Basics:
+
+-HTTP works on the top of TCP.
+-In golang, create a listner by giving type 'tcp' and 'port' to listen to.
+-create a forever loop and listnen inside loop
+-start accepaint ? to establish a connection
+-then u can 'read' and 'write' to connection
+-think of 'phone connection' as an example - u can read (listen) and write(speak)
+-listen - accept/deny - if accpet -read/ write into connection
+
+________________________________________________
+
+
+type handler interface{
+	ServeHTTP(ResponseWriter, *Request)
+}
+
+type myOwnStruct struct {
+	CustomField string
+}
+
+func (m myOwnStruct) ServeHTTP(w http.ResponseWriter, r *http.Request) {
+	fmt.Fprintln(w, "writing into the response...!")
+}
+
+func ListenAndServe(addr string, handler Handler) error {
+	
+}
+
+main(){
+	http.ListenAndServe(":8080", myOwnStruct)
+}
+
+________________________________________________
+
+http.ListenAndServe(":8080", handler)
+
+
+
+ex1:	http.ListenAndServe(":8080", customMux)	// customMux is a custom struct which implements ServeHTTP method to it.
+ex2:	Until here, we were passing handler to ListenAndServe
+
+Note:	If you want to use your own mux, then you need to associate your route pattern with that custom mux, But if you are not using any custom Mux, defaultServeMux will be created and used. ALL YOUR ROUTE PATTENS WILL BE REGISTERED WITH DEFAULT SERVE MUX.
+
+ex3:	http.ListenAndServe(":8080", nil)		// nil => DefaultServeMux which implements ServeHTTP method to it.

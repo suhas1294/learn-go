@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+</head>
+<body>
+<h1> slice of data : </h1>
+
+<ul>
+    {{ range .Transport }}
+    <li>{{ .Name }} - {{ .Model }} - {{ .Doors }} </li>
+    {{ end }}
+</ul>
+
+<ul>
+    {{ range .Wisdom }}
+    <li>{{ .Name }} - {{ .Motto }} </li>
+    {{ end }}
+</ul>
+
+</body>
+</html>

@@ -1,0 +1,113 @@
+syntax = "proto3";
+
+message Person {
+    int32 age = 1;
+    string first_name = 2;
+    string last_name = 3;
+    bytes small_picture = 4;
+    bool is_profile_verified = 5;
+    float height = 6;
+}
+
+// field_type	field_name	field_tag;
+// string		first_name	1;
+
+important things:
+
+
+1. In protocol buffers, field names are not important (while programming its important), more important element is the field tags
+2. field tag limit : 1 to 2^29
+3. reserved field tags: 19,000 to 19,999
+4. tags from 1 to 15 use 1 byte of space, use it for more frequently used fields
+5. tags from 16 to 2047 take 2 bytes 
+6. for every field, there will be a default value, thats a feature of proto3
+	bool: false
+	int: 0
+	string: ""
+	enum: firstValue
+	repeated: empty List
+7. Enumeration:
+	if u know the all the values a field can take, you can leverage the ENUM type
+	enum must start by the tag 0
+8. there can be a multiple messages in same proto fiel
+9. there can be a message inside a message AKA nested message
+10. you can import the other proto files in your proto file
+
+commands:
+
+folder structure:
+	some_directory
+		java
+		go
+		python
+		protofiles_folder
+
+proto -I=protofiles_folder --python_out=python protofiles_folder/*.proto
+
+-I : Info, where proto files are, indicate root source of your protocol buffer 
+--python-out : use python compiler
+python : put the compiled binaries to 'python' folder
+
+// for go lang:
+protoc --go_out=plugins=grpc:. hello/hellopb/hello.proto
+
+__________________________________________________________________________________________
+
+GRPC TUTORIALS (with golang):
+__________________________________________________________________________________________
+
+Project structure:
+
+$GOPATH
+	src
+		github.com
+			githubusername
+				multipleGrpcProj
+					proj1
+						server_code
+							server.go
+						client_code
+							client.go
+						proto_files_with_generated_buf
+							person.proto
+							animal.proto
+							person.pb.go
+							animal.ob.go
+					proj2
+						server_code
+							server.go
+						client_code
+							client.go
+						proto_files_with_generated_buf
+							person.proto
+							animal.proto
+							person.pb.go
+							animal.ob.go
+					proj3
+						server_code
+							server.go
+						client_code
+							client.go
+						proto_files_with_generated_buf
+							person.proto
+							animal.proto
+							person.pb.go
+							animal.ob.go
+
+______________________________________________________
+
+
+1.	create a proto file which contains 'message' and 'service'
+2.	Generate proto-buf files for the above create proto files
+3.	create a server.go file where :
+	1. create a connection by creating a listner (specify connection type and port binding)
+	2. create a new server struct, implement the <service-name>
+		There is an interface in pb.go file which has a <service-name> method, anything which implements that method implements that interface. So we create a <someName> struct in server.go file and attach <service-name> method to it , so out struct (ex: type server struct) implements that interface which in pb.go.
+	3. create a new grpc server
+	4. register the 'service' in the above created 'server' like below:
+	5. protobuf.RegisterSomeNameServiceServer (server, service)
+	6. call the serverObj.Server() and pass listner
+4. create a client.go
+	1. create a client connection by doing grpc.Dial("host:port", secure/InsecureMode)
+	2. create a client object by protobufFile.New<service-name>ServiceClient() and pass client connection object
+	3. Now you can use service by calling as follows : clientObjetc.serviceName(arg if any)

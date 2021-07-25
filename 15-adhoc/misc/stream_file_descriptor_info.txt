@@ -1,0 +1,23 @@
+Stream:
+
+In computer science, a stream is a sequence of data elements made available over time. A stream can be thought of as items on a conveyor belt being processed one at a time rather than in large batches.
+
+____________________________________________________________
+
+File descriptor:
+
+File descriptor is an integer in your application that refers to the file description in the kernel.
+File Descriptors are nothing but mappings to a file. You can also say these are pointers to a file that the process is using.
+
+In simple words, when you open a file, the operating system creates an entry to represent that file and store the information about that opened file. So if there are 100 files opened in your OS then there will be 100 entries in OS (somewhere in kernel). These entries are represented by integers like (...100, 101, 102....). This entry number is the file descriptor. So it is just an integer number that uniquely represents an opened file in operating system. If your process opens 10 files then your Process table will have 10 entries for file descriptors.
+
+When you open a file, OS creates a stream to that file and connect that stream to opened file, the descriptor in fact represents that stream. Similarly there are some default streams created by OS. These streams are connected to your terminal instead of files. So when you write something in terminal it goes to stdin stream and OS. And when you write "ls" command on terminal, the OS writes the output to stdout stream. stdout stream is connected to your monitor terminal so you can see the output there. 
+
+https://www.computerhope.com/jargon/f/file-descriptor.htm#:~:text=A%20file%20descriptor%20is%20a,Grants%20access.
+____________________________________________________________
+
+Interface:
+
+a device or program enabling a user to communicate with a computer.
+The means by which interaction or communication is achieved at an interface
+User interfaces are the keyboards, mice, commands and menus used for communication between you and the computer.
