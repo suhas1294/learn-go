@@ -2651,3 +2651,66 @@ __summary__ :
 3. When spinning sub-goroutines, you pass the context along
 4. Sub-goroutines can read values via ctx.Value("key")
 5. No need for fragile closure captures, everything is safe via context
+
+***
+
+### Adhoc questions and resources  : 
+
+why are we suppose to close the resp.body atfer we are done reading data ? 
+
+__Answer__ :  Think of it like reading a book from the library:
+1. You borrowed a book (resp.Body)
+2. You’ve read all the pages (io.ReadAll)
+3. But… you still have it in your bag! 😅
+
+Should the library system automatically assume you're done and recall the book?
+No — you must explicitly return it (resp.Body.Close()), so that:
+
+1. Other people can borrow it
+2. The library can clean up its records3
+3. The shelf gets freed
+
+#### Semaphore : 
+A semaphore is a concurrency control mechanism that limits the number of goroutines (or threads) that can access a shared resource at the same time.
+Think of it like a room with limited chairs:
+* If 3 people can sit at once (capacity = 3),
+* Others must wait until someone leaves.
+If you're doing something heavy or external (e.g., API calls, DB hits, file writes), and want to limit concurrency, you use a semaphore.
+```go
+package main
+
+import (
+	"fmt"
+	"sync"
+	"time"
+)
+
+func main() {
+	// This is our semaphore: a buffered channel of size 3
+	semaphore := make(chan struct{}, 3)
+
+	var wg sync.WaitGroup
+	for i := 1; i <= 10; i++ {
+		wg.Add(1)
+
+		go func(id int) {
+			defer wg.Done()
+
+			// Acquire semaphore
+			semaphore <- struct{}{}
+
+			fmt.Printf("Goroutine %d acquired semaphore\n", id)
+			time.Sleep(1 * time.Second) // Simulate work
+			fmt.Printf("Goroutine %d releasing semaphore\n", id)
+
+			// Release semaphore
+			<-semaphore
+		}(i)
+	}
+
+	wg.Wait()
+}
+```
+Here __When all 3 slots are full, other goroutines block until one is freed.__ 
+Alternatively we have `import "golang.org/x/sync/semaphore"`
+In summary : __Semaphore = a concurrency limiter__
